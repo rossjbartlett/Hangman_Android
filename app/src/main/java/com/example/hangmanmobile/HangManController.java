@@ -15,9 +15,9 @@ public class HangManController {
 	Button submitGuessButton;
 	EditText guess;
 	TextView badGuessesText;
-	TextView progessText;
+	TextView progressText;
 
-	int imageNumber = 1;
+	int imageNumber = 0;
 	ImageView img;
 
 
@@ -28,7 +28,7 @@ public class HangManController {
 		guess = text;
 		img = i;
 		badGuessesText = v;
-		progessText=p;
+		progressText =p;
 		submitGuessButton.setOnClickListener(new ButtonListener());
 	}
 
@@ -49,7 +49,6 @@ public class HangManController {
 					//bad guess
 					try {
 						updateHangman();
-
 					} catch (LostTheGameException e) {
 						System.out.println("GAME OVER");
 //						JOptionPane.showMessageDialog(null, "Congratulations! You Suck!!","You Lose", JOptionPane.INFORMATION_MESSAGE);
@@ -65,11 +64,13 @@ public class HangManController {
 				if(result == 2 ) { // correct guess
 					String progress = game.getProgressString();
 					//window.getCurrentGuessPanel().changeWord(progress);
-					progessText.setText(progress);
+					progressText.setText(progress);
 					boolean win = game.checkVictory();
 
 					if(win) {
 						//JOptionPane.showMessageDialog(null, "Congratulations! You Win!!", "You Win", JOptionPane.INFORMATION_MESSAGE);
+						System.out.println("YOU WIN");
+
 						reset();
 					}
 				}
@@ -100,9 +101,9 @@ public class HangManController {
 		String word = fileReader.getRandomWord();
 		game = new Game(word);
 		img.setImageResource(R.drawable.level0);
-
-		badGuessesText.setText("bad guesses");
-		progessText.setText("progress text");
+		imageNumber = 0;
+		badGuessesText.setText("");
+		progressText.setText(game.getProgressString()); // show the empty underscores that show how long the word is
 
 
 //		window.dispose();
@@ -116,8 +117,8 @@ public class HangManController {
 	{
 
 		int imgID = -1;
-		switch(imageNumber){
-//			case 0: imgID = R.drawable.level0; break;
+		switch(++imageNumber){
+			case 0: imgID = R.drawable.level0; break;
 			case 1: imgID = R.drawable.level1; break;
 			case 2: imgID = R.drawable.level2; break;
 			case 3: imgID = R.drawable.level3; break;
@@ -127,14 +128,14 @@ public class HangManController {
 			case 7: imgID = R.drawable.level7; break;
 			case 8: imgID = R.drawable.level8; break;
 			case 9: imgID = R.drawable.level9; break;
+			default: throw new LostTheGameException("You Lost!");
 		}
 		img.setImageResource(imgID);
 //		image = ImageIO.read(new File("Level" + imageNumber + ".png"));
 
-		imageNumber++;
 //		repaint();
-		if(imageNumber > 9){
-			throw new LostTheGameException("You Lost!");
-		}
+//		if(imageNumber > 9){
+//			throw new LostTheGameException("You Lost!");
+//		}
 	}
 }

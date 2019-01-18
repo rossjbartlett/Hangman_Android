@@ -21,32 +21,31 @@
             android:layout_width="188dp"
             android:layout_height="53dp"
             android:layout_gravity="center"
-            android:text="bad Guesses" />
+            android:textAlignment="center" />
 
         <TextView
             android:id="@+id/textViewProgress"
             android:layout_width="221dp"
             android:layout_height="38dp"
-            android:text="progress text"
             android:layout_gravity="center"
-            />
+            android:textAlignment="center" />
 
         <EditText
             android:id="@+id/editTextView"
             android:layout_width="209dp"
             android:layout_height="64dp"
+            android:layout_gravity="center"
             android:hint="insert guess here"
             android:inputType="text"
-            android:layout_gravity="center"
 
             />
+
         <Button
             android:id="@+id/submitButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Submit"
             android:layout_gravity="center"
-            />
+            android:text="Submit" />
 
     </LinearLayout>
 

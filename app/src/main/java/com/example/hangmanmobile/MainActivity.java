@@ -45,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
         img = findViewById(R.id.imageView);
         img.setImageResource(R.drawable.level0);
 
+
+        progressText.setText(game.getProgressString()); // show the empty underscores that show how long the word is
+
         HangManController controller = new HangManController(game, fileReader, b, guess, img, badGuessesText, progressText);
 
 
