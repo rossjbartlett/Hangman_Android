@@ -14,6 +14,8 @@ import java.io.InputStreamReader;
 public class MainActivity extends AppCompatActivity {
 
     Button submitGuessButton;
+    Button resetButton;
+
     EditText guess;
     TextView badGuessesText;
     TextView progressText;
@@ -38,7 +40,9 @@ public class MainActivity extends AppCompatActivity {
         String word = fileReader.getRandomWord();
         Game game = new Game(word);
 
-        Button b = findViewById(R.id.submitButton);
+        submitGuessButton= findViewById(R.id.submitButton);
+        resetButton= findViewById(R.id.resetButton);
+
         guess = findViewById(R.id.editTextView);
         badGuessesText = findViewById(R.id.textViewBadGuesses);
         progressText = findViewById(R.id.textViewProgress);
@@ -48,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
         progressText.setText(game.getProgressString()); // show the empty underscores that show how long the word is
 
-        HangManController controller = new HangManController(game, fileReader, b, guess, img, badGuessesText, progressText);
+        HangManController controller = new HangManController(game, fileReader, submitGuessButton, guess, img, badGuessesText, progressText, resetButton);
 
 
     }

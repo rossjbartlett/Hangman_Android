@@ -13,6 +13,8 @@ public class HangManController {
 	private MyFileReader fileReader;
 
 	Button submitGuessButton;
+	Button resetButton;
+
 	EditText guess;
 	TextView badGuessesText;
 	TextView progressText;
@@ -21,7 +23,7 @@ public class HangManController {
 	ImageView img;
 
 
-	public HangManController(Game g, MyFileReader fr, Button b, EditText text, ImageView i, TextView v, TextView p) {
+	public HangManController(Game g, MyFileReader fr, Button b, EditText text, ImageView i, TextView v, TextView p, Button resetBut) {
 		game = g;
 		fileReader = fr;
 		submitGuessButton = b;
@@ -29,11 +31,19 @@ public class HangManController {
 		img = i;
 		badGuessesText = v;
 		progressText =p;
-		submitGuessButton.setOnClickListener(new ButtonListener());
+		submitGuessButton.setOnClickListener(new SubmitButtonListener());
+		resetButton = resetBut;
+		resetButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				reset();
+			}
+		});
+
 	}
 
 
-	class ButtonListener implements View.OnClickListener {
+	class SubmitButtonListener implements View.OnClickListener {
 
 		@Override
 		public void onClick(View arg0 ) {

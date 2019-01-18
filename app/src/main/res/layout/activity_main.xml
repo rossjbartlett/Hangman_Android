@@ -14,26 +14,27 @@
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            />
 
         <TextView
             android:id="@+id/textViewBadGuesses"
             android:layout_width="188dp"
-            android:layout_height="53dp"
+            android:layout_height="32dp"
             android:layout_gravity="center"
             android:textAlignment="center" />
 
         <TextView
             android:id="@+id/textViewProgress"
             android:layout_width="221dp"
-            android:layout_height="38dp"
+            android:layout_height="29dp"
             android:layout_gravity="center"
             android:textAlignment="center" />
 
         <EditText
             android:id="@+id/editTextView"
             android:layout_width="209dp"
-            android:layout_height="64dp"
+            android:layout_height="55dp"
             android:layout_gravity="center"
             android:hint="insert guess here"
             android:inputType="text"
@@ -45,7 +46,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Submit" />
+            android:background="#4CAF50"
+            android:text="Submit"
+            android:layout_margin="5dp"/>
+
+        <Button
+            android:id="@+id/resetButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#E91E1E"
+            android:text="RESET" />
 
     </LinearLayout>
 
